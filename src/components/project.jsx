@@ -3,7 +3,7 @@ import ImageCarouselPopup from "./imageSlider";
 
 
 const Project = () => {
-const [isModalOpen, setIsModalOpen] = useState(false);
+const [openModalIndex, setOpenModalIndex] = useState(null);
   const navigateTo = (url) => {
     window.location.href = url;
   };
@@ -25,8 +25,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         videoLink:'www.youtube.com',
         moreImages:[
             "./assets/project-1.png",
-            "./assets/project-2.png",
-            "./assets/project-3.png"
+            "./assets/project-1.png",
+            "./assets/project-1.png"
         ]
     },
     {
@@ -36,13 +36,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         moreImages:[
             "./assets/project-1.png",
             "./assets/project-2.png",
-            "./assets/project-3.png"
+            
         ]
     }
   ]
-  const handleMoreImg=()=>{
-    
-  }
 
   return (
     <>
@@ -66,7 +63,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               <div className="btn-container">
                 <button
                   className="btn btn-color-2 project-btn"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => setOpenModalIndex(index)}
                 >
                   More Image
                 </button>
@@ -76,6 +73,12 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 >
                   Video
                 </button>
+                <ImageCarouselPopup 
+                  isOpen={openModalIndex === index} 
+                  onClose={() => setOpenModalIndex(null)} 
+                  images={item.moreImages} 
+                  projectName={item.name}
+                />
               </div>
             </div>
           ))}
