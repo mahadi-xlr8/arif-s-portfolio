@@ -1,110 +1,74 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Service = () => {
-    const constructions=[
-        {
-            name: "Designing",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Planning",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Construction",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Building",
-            expertise: "Intermediate",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Infrastructure",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Planning",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        
-    ]
-    const hydrolic=[
-        {
-            name: "Modeling",
-            expertise: "Intermediate",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Analysis",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Construction",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-        {
-            name: "Infrastructure",
-            expertise: "Experienced",
-            img:"./assets/checkmark.png"
-        },
-    ]
-  return (
-    <section id="experience">
-      <p className="section__text__p1">Explore Our</p>
-      <h1 className="title">Services</h1>
-      <div className="experience-details-container">
-        <div className="about-containers">
-          {/* Frontend Development Section */}
-          <div className="details-container">
-            <h2 className="experience-sub-title">Construction Engineering</h2>
-            <div className="article-container">
-                {constructions.map(item=><article>
-                <img
-                  src={item.img}
-                  alt="icon"
-                  className="icon"
-                />
-                <div>
-                  <h3>{item.name}</h3>
-                  <p>{item.expertise}</p>
-                </div>
-              </article>)}
-            </div>
-          </div>
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
 
-          {/* Backend Development Section */}
-          <div className="details-container">
-            <h2 className="experience-sub-title">Hydraulic Engineering</h2>
-            <div className="article-container">
-                {hydrolic.map(item=> <article>
-                <img
-                  src={item.img}
-                  alt="icon"
-                  className="icon"
-                />
-                <div>
-                  <h3>{item.name}</h3>
-                  <p>{item.expertise}</p>
-                </div>
-              </article>)}
+  const services = [
+    {
+      name: "Deep Tube Well Installation",
+      description: "Installation of any size any depth deep tube wells all over Bangladesh. We ensure quality installation with modern equipment.",
+      img: "./assets/tube-well.png"
+    },
+    {
+      name: "Submersible Pump Service",
+      description: "Expert installation and maintenance of submersible pumps. We provide 24/7 support for emergency repairs.",
+      img: "./assets/pump.png"
+    },
+    {
+      name: "Tube Well Maintenance",
+      description: "Professional tube wells washing and jetting services to ensure optimal performance and longevity.",
+      img: "./assets/maintenance.png"
+    },
+    {
+      name: "Professional Design Services",
+      description: "DPHE & BUET certified tube well designs. Our experts ensure compliance with all safety standards.",
+      img: "./assets/design.png"
+    },
+    {
+      name: "Water Parameter Testing",
+      description: "Comprehensive water quality testing services to ensure safe and clean water supply.",
+      img: "./assets/water.png"
+    },
+    {
+      name: "Material Supply",
+      description: "One-stop solution for all tube well materials. We supply high-quality components at competitive prices.",
+      img: "./assets/supply.png"
+    }
+  ];
+
+  return (
+    <section id="services" className="services-section">
+      <div className="services-container">
+        <h1 className="section-title">Our Services</h1>
+        <p className="section-subtitle">Providing Quality Water Solutions Since 2020</p>
+        
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className="service-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className="service-icon">
+                <img src={service.img} alt={service.name} />
+              </div>
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+              <button className="learn-more-btn" onClick={() => {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+              }}>Hire Us</button>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        className="icon arrow"
-        onClick={() => (window.location.href = './#projects')}
-      />
     </section>
   );
 };

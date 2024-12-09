@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImageCarouselPopup from "./imageSlider";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Project = () => {
 const [openModalIndex, setOpenModalIndex] = useState(null);
   const navigateTo = (url) => {
     window.location.href = url;
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: false, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
 
   const projects=[
     {
@@ -49,7 +57,7 @@ const [openModalIndex, setOpenModalIndex] = useState(null);
       <div className="experience-details-container">
         <div className="about-containers">
           {projects.map((item,index) => (
-            <div key={index} className="details-container color-container">
+            <div key={index} className="details-container color-container" data-aos="fade-up">
               <div className="article-container">
                 <img
                   src={item.img}
@@ -87,7 +95,7 @@ const [openModalIndex, setOpenModalIndex] = useState(null);
       <img
         src="./assets/arrow.png"
         alt="Arrow icon"
-        className="icon arrow"
+        className="icon arrow down-arrow"
         onClick={() => navigateTo("./#contact")}
       />
     </section>

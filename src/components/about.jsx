@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const About = () => {
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: false, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
   return (
     <>
       <section id="about">
   <p className="section__text__p1">Get To Know More</p>
   <h1 className="title">About Us</h1>
   <div className="section-container about-section-container">
-    <div className="section__pic-container">
+    <div className="section__pic-container" data-aos="fade-right">
       <img
         src="./assets/about-us1.jpg"
         alt="Profile picture"
         className="about-pic"
       />
     </div>
-    <div className="about-details-container">
+    <div className="about-details-container" data-aos="fade-left">
       <div className="about-containers">
         <div className="details-container">
           <img
@@ -58,8 +65,8 @@ const About = () => {
   <img
     src="./assets/arrow.png"
     alt="Arrow icon"
-    className="icon arrow"
-    onClick={() => (window.location.href = './#experience')}
+    className="icon arrow down-arrow"
+    onClick={() => (window.location.href = './#services')}
   />
 </section>
 

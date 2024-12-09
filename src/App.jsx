@@ -5,7 +5,8 @@ import Profile from './components/profile';
 import About from './components/about';
 import Service from './components/service';
 import Project from './components/project';
-import ImageCarouselPopup from './components/imageSlider';
+import Contact from './components/contact';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
     <About/>
     <Service/>
     <Project/>
+    <Contact/>
+    <Footer/>
     </>
   );
 }
