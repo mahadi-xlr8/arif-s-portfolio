@@ -20,7 +20,7 @@ const [openModalIndex, setOpenModalIndex] = useState(null);
     {
         name: "Project 1",
         img: "./assets/project-1.png",
-        videoLink:'www.youtube.com',
+        videoLink:'https://www.youtube.com',
         moreImages:[
             "./assets/project-1.png",
             "./assets/project-2.png",
@@ -29,8 +29,8 @@ const [openModalIndex, setOpenModalIndex] = useState(null);
     },
     {
         name: "Project 1",
-        img: "./assets/project-1.png",
-        videoLink:'www.youtube.com',
+        img: "./assets/project-2.png",
+        videoLink:'https://www.youtube.com',
         moreImages:[
             "./assets/project-1.png",
             "./assets/project-1.png",
@@ -39,8 +39,8 @@ const [openModalIndex, setOpenModalIndex] = useState(null);
     },
     {
         name: "Project 1",
-        img: "./assets/project-1.png",
-        videoLink:'www.youtube.com',
+        img: "./assets/project-3.png",
+        videoLink:'https://www.youtube.com',
         moreImages:[
             "./assets/project-1.png",
             "./assets/project-2.png",

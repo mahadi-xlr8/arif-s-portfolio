@@ -28,7 +28,7 @@ const Navigation = () => {
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#experience">Experience</a>
+              <a href="#services">Services</a>
             </li>
             <li>
               <a href="#projects">Projects</a>
@@ -56,8 +56,8 @@ const Navigation = () => {
                 </a>
               </li>
               <li>
-                <a href="#experience" onClick={toggleMenu}>
-                  Experience
+                <a href="#services" onClick={toggleMenu}>
+                  Services
                 </a>
               </li>
               <li>
